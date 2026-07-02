@@ -3,12 +3,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <signal.h>
-
 int main(int argc, char **argv)
 {
   const char *path = (argc > 1) ? argv[1] : "/tmp/testfile";
-  int         n    = (argc > 2) ? atoi(argv[2]) : 200;
-  int         fd, i;
+  int n = (argc > 2) ? atoi(argv[2]) : 200;
+  int fd, i;
 
   fd = open(path, O_RDWR | O_CREAT, 0644);
   if (fd < 0) { perror("open/create"); return 1; }
